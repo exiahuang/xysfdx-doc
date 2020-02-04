@@ -1,0 +1,1128 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="xysfdx is a Rapid development tool for Salesforce SFDX Development. Support Docker, WSL, Dataloader! Metadata diff with server, retrieve standard sobject.">
+      
+      
+        <link rel="canonical" href="https://github.io/exiahuang/xysfdx-doc/">
+      
+      
+        <meta name="author" content="Exia.Huang">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en, ja, zh-CN">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>xysfdx</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#xysfdx" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.io/exiahuang/xysfdx-doc/" title="xysfdx" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            xysfdx
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/exiahuang/xysfdx/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    exiahuang/xysfdx
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="." class="md-tabs__link md-tabs__link--active">
+        xysfdx
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.io/exiahuang/xysfdx-doc/" title="xysfdx" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    xysfdx
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/exiahuang/xysfdx/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    exiahuang/xysfdx
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        xysfdx
+      </label>
+    
+    <a href="." title="xysfdx" class="md-nav__link md-nav__link--active">
+      xysfdx
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shortkey" class="md-nav__link">
+    Shortkey
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-project" class="md-nav__link">
+    Create a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-metadata" class="md-nav__link">
+    Retrieve metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diff-metadata" class="md-nav__link">
+    Diff metadata
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diff-source" class="md-nav__link">
+    diff source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-profile" class="md-nav__link">
+    diff profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-metadata" class="md-nav__link">
+    Deploy metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataloader" class="md-nav__link">
+    Dataloader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-features" class="md-nav__link">
+    Option Features
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-config-option-features" class="md-nav__link">
+    How to config option features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-in-option-features" class="md-nav__link">
+    Build-in Option Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-advanced-command" class="md-nav__link">
+    show advanced command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-run-apex-anonymous-code" class="md-nav__link">
+    auto run apex anonymous code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-save-to-sfdc-server" class="md-nav__link">
+    auto save to sfdc server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pretty-code" class="md-nav__link">
+    pretty code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-docker-user" class="md-nav__link">
+    For Docker user
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode-config" class="md-nav__link">
+    vscode config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-docker" class="md-nav__link">
+    How to use docker ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attention" class="md-nav__link">
+    attention
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-windows-user" class="md-nav__link">
+    For Windows user
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-cmdwslbash" class="md-nav__link">
+    Open cmd/wsl/bash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-wsl" class="md-nav__link">
+    use wsl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-msys2-bash" class="md-nav__link">
+    use msys2 bash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-git-bash" class="md-nav__link">
+    use git bash
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="Dataloader/" title="Dataloader" class="md-nav__link">
+      Dataloader
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="Develope-with-Docker/" title="Develope with Docker" class="md-nav__link">
+      Develope with Docker
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="Develope-with-Wsl/" title="Develope with Wsl" class="md-nav__link">
+      Develope with Wsl
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="Diff-metadata/" title="Diff metadata" class="md-nav__link">
+      Diff metadata
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="Export-and-import-data/" title="Export and Import Data Between Orgs" class="md-nav__link">
+      Export and Import Data Between Orgs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="Print-Debug/" title="print debug" class="md-nav__link">
+      print debug
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="Retrieve-changeset/" title="Retrieve changeset" class="md-nav__link">
+      Retrieve changeset
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shortkey" class="md-nav__link">
+    Shortkey
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-project" class="md-nav__link">
+    Create a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-metadata" class="md-nav__link">
+    Retrieve metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diff-metadata" class="md-nav__link">
+    Diff metadata
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diff-source" class="md-nav__link">
+    diff source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-profile" class="md-nav__link">
+    diff profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-metadata" class="md-nav__link">
+    Deploy metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataloader" class="md-nav__link">
+    Dataloader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-features" class="md-nav__link">
+    Option Features
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-config-option-features" class="md-nav__link">
+    How to config option features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-in-option-features" class="md-nav__link">
+    Build-in Option Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-advanced-command" class="md-nav__link">
+    show advanced command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-run-apex-anonymous-code" class="md-nav__link">
+    auto run apex anonymous code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-save-to-sfdc-server" class="md-nav__link">
+    auto save to sfdc server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pretty-code" class="md-nav__link">
+    pretty code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-docker-user" class="md-nav__link">
+    For Docker user
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode-config" class="md-nav__link">
+    vscode config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-docker" class="md-nav__link">
+    How to use docker ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attention" class="md-nav__link">
+    attention
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-windows-user" class="md-nav__link">
+    For Windows user
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-cmdwslbash" class="md-nav__link">
+    Open cmd/wsl/bash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-wsl" class="md-nav__link">
+    use wsl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-msys2-bash" class="md-nav__link">
+    use msys2 bash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-git-bash" class="md-nav__link">
+    use git bash
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/exiahuang/xysfdx/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="xysfdx">xysfdx<a class="headerlink" href="#xysfdx" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/exiahuang/xysfdx">xysfdx</a> is a Rapid development tool for Salesforce SFDX Development. Metadata diff with server, retrieve standard sobject.</p>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Less than 100k</li>
+<li>Support <a href="https://github.com/exiahuang/dataloader">Dataloader v40.0.0~v47.0.0</a> Export/ExportAll/Insert/Update/Upsert/Delete.</li>
+<li>Support Docker to develope sfdx . Use <a href="https://hub.docker.com/r/exiasfdc/sfdx">exiasfdc/sfdx</a> docker image, no need to config, just run it.</li>
+<li>Support using WSL/git bash/Msys2/MingW64/MingW32 to develope sfdx .</li>
+<li>Authenticated with oauth2.</li>
+<li>Retrieve Metadata by select.</li>
+<li>Metadata diff with server(any sfdc organization).</li>
+<li>Retrieve standard sobject.</li>
+<li>Open sfdc link easily.</li>
+<li>Open console easily.</li>
+<li>Option Features<ul>
+<li>support Username-Password OAuth Authentication .</li>
+<li>auto run <code>.apex</code> file after save.</li>
+<li>auto save to sfdc server</li>
+<li>deploy to any sfdc organization</li>
+<li>pretty code: pretty <code>.cmp</code>, <code>.page</code>, <code>.component</code>, <code>.trigger</code>, <code>.cls</code> file</li>
+</ul>
+</li>
+</ul>
+<h2 id="shortkey">Shortkey<a class="headerlink" href="#shortkey" title="Permanent link">&para;</a></h2>
+<p>shortkey: <code>ctrl+shift+j</code></p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p><a href="https://developer.salesforce.com/ja/tools/sfdxcli">Salesforce Cli</a></p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<h2 id="create-a-project">Create a project<a class="headerlink" href="#create-a-project" title="Permanent link">&para;</a></h2>
+<p><code>force:project:create</code></p>
+<p><img alt="xycode-sfdx-init-project" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xycode-sfdx-init-project.gif" /></p>
+<h2 id="retrieve-metadata">Retrieve metadata<a class="headerlink" href="#retrieve-metadata" title="Permanent link">&para;</a></h2>
+<p><code>force:source:retrieve:metadata</code></p>
+<p><img alt="xycode-sfdx-retrieve-meta" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xycode-sfdx-retrieve-meta.gif" /></p>
+<h2 id="diff-metadata">Diff metadata<a class="headerlink" href="#diff-metadata" title="Permanent link">&para;</a></h2>
+<p><code>force:source:diff:metadata</code></p>
+<p>You can diff with <strong>any sfdc organization</strong>.</p>
+<h3 id="diff-source">diff source<a class="headerlink" href="#diff-source" title="Permanent link">&para;</a></h3>
+<p><img alt="xycode-sfdx-diff-meta" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xycode-sfdx-diff-meta.gif" /></p>
+<h3 id="diff-profile">diff profile<a class="headerlink" href="#diff-profile" title="Permanent link">&para;</a></h3>
+<p><img alt="xycode-sfdx-diff-profile-meta" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xycode-sfdx-diff-profile-meta.gif" /></p>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
+<p><code>force:auth:web:login</code>
+<code>force:auth:web:login:setdefaultusername</code></p>
+<h2 id="deploy-metadata">Deploy metadata<a class="headerlink" href="#deploy-metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>force:source:deploy:metadata</code></li>
+<li><code>force:source:deploy:current_file</code></li>
+</ul>
+<h2 id="dataloader">Dataloader<a class="headerlink" href="#dataloader" title="Permanent link">&para;</a></h2>
+<ul>
+<li>support v40.0.0~v47.0.0</li>
+<li>support CSV Export/ExportAll/Insert/Update/Upsert/Delete</li>
+</ul>
+<p><img alt="xysfdx-dataloader" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-dataloader.gif" /></p>
+<blockquote>
+<p>If you use docker, you can only select csv/sdl file in current workspace.</p>
+<p>TIPS: How to create sdl file ? I always use <a href="https://chrome.google.com/webstore/detail/salesforce-xytools/ehklfkbacogbanjgekccnbfdgjechlmf">SalesforceXyTools For Chrome</a> to create it.</p>
+</blockquote>
+<h2 id="option-features">Option Features<a class="headerlink" href="#option-features" title="Permanent link">&para;</a></h2>
+<h3 id="how-to-config-option-features">How to config option features<a class="headerlink" href="#how-to-config-option-features" title="Permanent link">&para;</a></h3>
+<p>You can also open the Settings editor from the Command Palette (<code>Ctrl+Shift+P</code>) with Preferences: Open Settings or use the keyboard shortcut (<code>Ctrl+,</code>).</p>
+<p>search <code>xysfdx</code></p>
+<p><img alt="xysfdx-setting" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-setting.png" /></p>
+<h3 id="build-in-option-features">Build-in Option Features<a class="headerlink" href="#build-in-option-features" title="Permanent link">&para;</a></h3>
+<p><code>xysfdx.optionFeatures</code> config:</p>
+<ul>
+<li>use_advanced_command: show advanced command</li>
+<li>auto_run_apex_anonymous: run <code>.apex</code> file after save it</li>
+<li>auto_save_to_sfdc: auto deploy to <code>.trigger</code>, <code>.cls</code>, <code>.component</code>, <code>.page</code> file to sfdc</li>
+<li>pretty_vf_page: pretty <code>.cmp</code>, <code>.page</code>, <code>.component</code> file</li>
+<li>pretty_apex_anonymous: pretty <code>.apex</code> file</li>
+<li>pretty_apex: pretty <code>.trigger</code>, <code>.cls</code> file</li>
+</ul>
+<p>config:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;xysfdx.optionFeatures&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="err">//</span> <span class="err">show</span> <span class="err">advanced</span> <span class="err">command</span>
+        <span class="err">//</span><span class="s2">&quot;use_advanced_command&quot;</span><span class="p">,</span>
+
+        <span class="err">//</span> <span class="err">auto</span> <span class="err">deploy</span> <span class="err">to</span> <span class="err">`.trigger`</span><span class="p">,</span> <span class="err">`.cls`</span><span class="p">,</span> <span class="err">`.component`</span><span class="p">,</span> <span class="err">`.page`</span> <span class="err">file</span> <span class="err">to</span> <span class="err">sfdc</span>
+        <span class="err">//</span> <span class="s2">&quot;auto_save_to_sfdc&quot;</span><span class="p">,</span>
+
+        <span class="err">//</span> <span class="err">pretty</span> <span class="err">`.cmp`</span><span class="p">,</span> <span class="err">`.page`</span><span class="p">,</span> <span class="err">`.component`</span> <span class="err">file</span>
+        <span class="err">//</span> <span class="s2">&quot;pretty_vf_page&quot;</span><span class="p">,</span>
+
+        <span class="err">//</span> <span class="err">pretty</span> <span class="err">`.trigger`</span><span class="p">,</span> <span class="err">`.cls`</span> <span class="err">file</span>
+        <span class="err">//</span> <span class="s2">&quot;pretty_apex&quot;</span><span class="p">,</span>
+
+        <span class="err">//</span> <span class="err">run</span> <span class="err">`.apex`</span> <span class="err">file</span> <span class="err">after</span> <span class="err">save</span> <span class="err">it</span><span class="p">,</span> <span class="err">default</span> <span class="err">active</span>
+        <span class="s2">&quot;auto_run_apex_anonymous&quot;</span><span class="p">,</span>
+
+        <span class="err">//</span> <span class="err">pretty</span> <span class="err">`.apex`</span> <span class="err">file</span>
+        <span class="s2">&quot;pretty_apex_anonymous&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="show-advanced-command">show advanced command<a class="headerlink" href="#show-advanced-command" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Advanced:force:source:deploy:current_file</code>: Select Authenticated server and deploy file</li>
+<li><code>Advanced:force:source:retrieve:current_file</code>: Select Authenticated server and retrieve file</li>
+</ul>
+<h3 id="auto-run-apex-anonymous-code">auto run apex anonymous code<a class="headerlink" href="#auto-run-apex-anonymous-code" title="Permanent link">&para;</a></h3>
+<p><code>auto_run_apex_anonymous</code></p>
+<p><img alt="xycode-sfdx-run-apex-anonymous" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xycode-sfdx-run-apex-anonymous.gif" /></p>
+<h3 id="auto-save-to-sfdc-server">auto save to sfdc server<a class="headerlink" href="#auto-save-to-sfdc-server" title="Permanent link">&para;</a></h3>
+<p><code>auto_save_to_sfdc</code></p>
+<p><img alt="xysfdx-auto-save-to-sfdc" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-auto-save-to-sfdc.gif" /></p>
+<h3 id="pretty-code">pretty code<a class="headerlink" href="#pretty-code" title="Permanent link">&para;</a></h3>
+<ul>
+<li>pretty_apex: pretty <code>.cmp</code>, <code>.page</code>, <code>.component</code> file</li>
+<li>pretty_vf_page: pretty <code>.trigger</code>, <code>.cls</code> file</li>
+<li>pretty_apex_anonymous : pretty <code>.apex</code> file</li>
+</ul>
+<blockquote>
+<p>you need to install <code>java</code> and prettier and prettier-plugin-apex
+npm install --global prettier prettier-plugin-apex
+sudo apt install openjdk-8-jdk
+read more about <a href="https://github.com/dangmai/prettier-plugin-apex">prettier-plugin-apex</a></p>
+</blockquote>
+<p><img alt="xysfdx-pretty_apex" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-pretty_apex.gif" /></p>
+<h2 id="for-docker-user">For Docker user<a class="headerlink" href="#for-docker-user" title="Permanent link">&para;</a></h2>
+<h3 id="vscode-config">vscode config<a class="headerlink" href="#vscode-config" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;xysfdx.shellMode&quot;</span><span class="p">:</span> <span class="s2">&quot;docker&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;xysfdx.shellPath&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;xysfdx.dockerContainer&quot;</span><span class="p">:</span> <span class="s2">&quot;${lowercaseWorkspaceName}_sfdx_1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;xysfdx.dockerAppRoot&quot;</span><span class="p">:</span> <span class="s2">&quot;/app/sfdx&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="how-to-use-docker">How to use docker ?<a class="headerlink" href="#how-to-use-docker" title="Permanent link">&para;</a></h3>
+<ol>
+<li>pull images : <code>docker: pull image exiasfdc/sfdx</code></li>
+</ol>
+<p><img alt="xysfdx-docker-image" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-docker-image.gif" /></p>
+<ol>
+<li>create container : <code>docker: create sfdx container</code></li>
+</ol>
+<p><img alt="xysfdx-docker-container" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-docker-container.gif" /></p>
+<ol>
+<li>use docker shell : <code>docker: attach docker shell</code></li>
+</ol>
+<p><img alt="xysfdx-docker-bash" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-docker-bash.gif" /></p>
+<p>then , use the <code>xysfdx</code> to develope sfdx.</p>
+<h3 id="attention">attention<a class="headerlink" href="#attention" title="Permanent link">&para;</a></h3>
+<ul>
+<li>can not use <code>force:auth:web:login</code> or <code>force:auth:web:login:setdefaultusername</code></li>
+<li>use <code>xy:auth:username:login</code> to auth</li>
+</ul>
+<h2 id="for-windows-user">For Windows user<a class="headerlink" href="#for-windows-user" title="Permanent link">&para;</a></h2>
+<p>use wsl/git bash/Msys2 bash to develope sfdx.</p>
+<h3 id="open-cmdwslbash">Open cmd/wsl/bash<a class="headerlink" href="#open-cmdwslbash" title="Permanent link">&para;</a></h3>
+<p><img alt="xysfdx-open-wsl.png" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-open-wsl.png" /></p>
+<p><img alt="xysfdx-open-wsl" src="https://raw.githubusercontent.com/exiahuang/xycode-doc/gh-pages/images/xysfdx-open-wsl.gif" /></p>
+<h3 id="use-wsl">use wsl<a class="headerlink" href="#use-wsl" title="Permanent link">&para;</a></h3>
+<p>open <code>wslmode</code></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;xysfdx.shellMode&quot;</span><span class="p">:</span> <span class="s2">&quot;wsl&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;xysfdx.shellPath&quot;</span><span class="p">:</span> <span class="s2">&quot;C:\\Windows\\System32\\bash.exe&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="use-msys2-bash">use msys2 bash<a class="headerlink" href="#use-msys2-bash" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;xysfdx.shellMode&quot;</span><span class="p">:</span> <span class="s2">&quot;bash&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;xysfdx.shellPath&quot;</span><span class="p">:</span> <span class="s2">&quot;C:\\msys64\\usr\\bin\\bash.exe&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="use-git-bash">use git bash<a class="headerlink" href="#use-git-bash" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;xysfdx.shellMode&quot;</span><span class="p">:</span> <span class="s2">&quot;bash&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;xysfdx.shellPath&quot;</span><span class="p">:</span> <span class="s2">&quot;C:\\Program Files\\Git\\usr\\bin\\bash.exe&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong>Enjoy it!</strong></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+        
+          <a href="Dataloader/" title="Dataloader" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Dataloader
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 Exia Huang
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/exiahuang" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/ExiaSfdc" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/profile.php?id=100015890262852" class="md-footer-social__link fa fa-facebook"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+                <script src="assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+            
+              
+              
+            
+          
+          
+            <script src="assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      
+    
+  </body>
+</html>
